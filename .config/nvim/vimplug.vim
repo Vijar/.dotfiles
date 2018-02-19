@@ -11,6 +11,7 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Declare the list of plugins.
+"
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -24,11 +25,10 @@ let g:deoplete#enable_at_startup = 1
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'jistr/vim-nerdtree-tabs', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'easymotion/vim-easymotion'
 Plug 'bfredl/nvim-miniyank'
-Plug 'w0rp/ale'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 

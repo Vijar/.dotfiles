@@ -1,0 +1,56 @@
+function prompt_rajiv_precmd {
+  unset branch_formatted
+  typeset -gA prompt_info
+  local git_branch_name
+  local branch_format
+
+  # Get Git repository information.
+  git_branch_name=${$(git symbolic-ref HEAD 2> /dev/null)#refs/heads/}
+
+  zstyle -s ':prezto:module:git:info:branch' format 'branch_format'
+  if [[ -n "$git_branch_name" ]]; then
+    zformat -f branch_formatted "$branch_format" "b:$git_branch_name"
+  fi
+
+  prompt_info["branch"]="$branch_formatted"
+}
+
+function prompt_rajiv_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent sp subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook to set up prompt parameters before each command.
+  add-zsh-hook precmd prompt_rajiv_precmd
+
+  # Use extended color pallete if available.
+  if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+    _prompt_rajiv_colors=(
+      "%F{81}"  # Turquoise
+      "%F{166}" # Orange
+      "%F{135}" # Purple
+      "%F{161}" # Hotpink
+      "%F{118}" # Limegreen
+    )
+  else
+    _prompt_rajiv_colors=(
+      "%F{cyan}"
+      "%F{yellow}"
+      "%F{magenta}"
+      "%F{red}"
+      "%F{green}"
+    )
+  fi
+
+  # Format branch.
+  zstyle ':prezto:module:git:info:branch' format "on ${_prompt_skwp_colors[1]}%b%f"
+
+  newline=$'\n'
+  # Define prompts.
+  PROMPT="${_prompt_rajiv_colors[3]}%n%f at ${_prompt_rajiv_colors[2]}%m%f in ${_prompt_rajiv_colors[5]}%~%f "'${prompt_info["branch"]}'" $newline↪ "
+}
+
+prompt_rajiv_setup "$@"
