@@ -19,6 +19,7 @@ alias editghost="vim ~/.config/ghostty/config"
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
+alias gcm="git commit -m"
 alias gp="git push"
 
 # Quick directory navigation

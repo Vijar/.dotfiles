@@ -12,6 +12,9 @@ fi
 brew install stow starship zoxide eza fnm \
   zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search
 
+echo "==> Installing fonts..."
+brew install --cask font-commit-mono-nerd-font
+
 echo "==> Stowing dotfiles..."
 cd "$DOTFILES"
 
