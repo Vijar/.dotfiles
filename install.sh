@@ -20,7 +20,9 @@ cd "$DOTFILES"
 [ -f "$HOME/.zprofile" ] && [ ! -L "$HOME/.zprofile" ] && mv "$HOME/.zprofile" "$HOME/.zprofile.bak"
 [ -f "$HOME/.config/starship.toml" ] && [ ! -L "$HOME/.config/starship.toml" ] && mv "$HOME/.config/starship.toml" "$HOME/.config/starship.toml.bak"
 
-stow zsh starship
+[ -f "$HOME/.config/ghostty/config" ] && [ ! -L "$HOME/.config/ghostty/config" ] && mv "$HOME/.config/ghostty/config" "$HOME/.config/ghostty/config.bak"
+
+stow zsh starship ghostty
 
 echo ""
 echo "Done! Open a new shell to apply changes."
