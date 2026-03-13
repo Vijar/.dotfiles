@@ -1,1 +1,0 @@
-/Users/rtirumalareddy/.zprezto/runcoms/zprofile
