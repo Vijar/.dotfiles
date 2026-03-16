@@ -6,6 +6,7 @@ export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 setopt autocd
 autoload -U compinit; compinit
+_comp_options+=(globdots)
 
 eval "$(starship init zsh)"
 
@@ -27,8 +28,7 @@ alias dev="cd ~/Development"
 alias docs="cd ~/Documents"
 
 alias ls="eza --icons"
-alias ll="eza -l --icons"
-alias la="eza -la --icons"
+alias ll="eza -la --icons"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

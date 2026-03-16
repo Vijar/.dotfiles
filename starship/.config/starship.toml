@@ -1,21 +1,22 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-
+command_timeout = 1500
+#  
 format = """
-[░▒▓](#a3aed2)\
+[┏](#a3aed2)\
 [  ](bg:#a3aed2 fg:#090c0c)\
-[](bg:#769ff0 fg:#a3aed2)\
+[](bg:#769ff0 fg:#a3aed2)\
 $directory\
-[](fg:#769ff0 bg:#394260)\
+[](fg:#769ff0 bg:#394260)\
 $git_branch\
 $git_status\
-[](fg:#394260 bg:#212736)\
+[](fg:#394260 bg:#212736)\
 $nodejs\
 $rust\
 $golang\
 $php\
-[](fg:#212736 bg:#1d2230)\
+[](fg:#212736 bg:#1d2230)\
 $time\
-[ ](fg:#1d2230)\
+[ ](fg:#1d2230)\
 \n$character"""
 
 [directory]
@@ -32,8 +33,8 @@ truncation_symbol = "…/"
 "Pictures" = " "
 
 [character]
-success_symbol = "[→](bold cyan)"
-error_symbol = "[→](bold red)"
+success_symbol = "[┗󰁕](bold #a3aed2)"
+error_symbol = "[┗](bold #a3aed2)[󰁕](bold red)"
 
 [git_branch]
 symbol = ""
@@ -48,6 +49,8 @@ format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 symbol = ""
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+detect_files = ["package.json", ".node-version", ".nvmrc"]
+detect_folders = ["node_modules"]
 
 [rust]
 symbol = ""
